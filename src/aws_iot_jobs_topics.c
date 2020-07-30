@@ -115,7 +115,7 @@ int aws_iot_jobs_get_api_topic(char *buffer, size_t bufferSize,
 
 	const char *suffix = _get_suffix_for_topic_type(replyType);
 
-	if (requireJobId || (topicType == JOB_WILDCARD_TOPIC && jobId != NULL)) {
+	if (jobId != NULL) {
 		return snprintf(buffer, bufferSize, BASE_THINGS_TOPIC "%s/jobs/%s/%s%s", thingName, jobId, operation, suffix);
 	} else if (topicType == JOB_WILDCARD_TOPIC) {
 		return snprintf(buffer, bufferSize, BASE_THINGS_TOPIC "%s/jobs/#", thingName);
